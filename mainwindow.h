@@ -6,9 +6,7 @@
 #include <QGraphicsPixmapItem>
 #include <QTimerEvent>
 #include <QEvent>
-
-#define TILE_HEIGHT 128
-#define TILE_WIDTH 1024
+#include "qcustomplot.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -21,15 +19,12 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    QPixmap generateLine();
 public slots:
-    void timerEvent(QTimerEvent *);
+
+private slots:
+    void on_pushButton_clicked();
 
 private:
     Ui::MainWindow *ui;
-    QGraphicsView * m_view;
-    QGraphicsScene * m_scene;
-    QVector <QGraphicsPixmapItem *> m_tiles;
-    QVector <QGraphicsPixmapItem *> m_lineBuffer;
 };
 #endif // MAINWINDOW_H
